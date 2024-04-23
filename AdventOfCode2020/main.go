@@ -9,6 +9,6 @@ import (
 
 func main() {
 	out := utils.ReadInputString("day4.txt")
-	solution := sol.Day3_2(out)
+	solution := sol.Day4(out)
 	fmt.Println(solution)
 }
