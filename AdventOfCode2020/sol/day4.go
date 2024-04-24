@@ -15,6 +15,7 @@ func Day4(data []string) int {
 				count_valid_passport++
 			}
 			values = []string{}
+			continue
 		}
 		values = append(values, data[i])
 	}
@@ -41,6 +42,7 @@ func isValidPassport(data []string) bool {
 		key_values := strings.Split(data[i], " ")
 		fmt.Println(key_values)
 		for j := range key_values {
+			fmt.Println(key_values[j])
 			key_arr := strings.Split(key_values[j], ":")
 			key_check[key_arr[0]] = key_arr[1]
 		}
@@ -51,6 +53,10 @@ func isValidPassport(data []string) bool {
 func isValidFormat(data map[string]string) bool {
 	valid_items := 0
 	for k, v := range data {
+		fmt.Println("Running for k", k)
+		if v == "" {
+			return false
+		}
 		if k == "byr" {
 			val, err := strconv.Atoi(v)
 			if err != nil {
